@@ -33,7 +33,6 @@ switchPlayer = (message, id) => {
 	<div>
 		<h1> Tic Tac Toe Game </h1>
 		<div className="parent">
-
 			<Box id={1} switchPlayer={this.switchPlayer} player={this.state.player1}/>
 			<Box id={2} switchPlayer={this.switchPlayer} player={this.state.player1}/>
 			<Box id={3} switchPlayer={this.switchPlayer} player={this.state.player1}/>
