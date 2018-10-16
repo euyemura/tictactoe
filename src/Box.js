@@ -16,18 +16,18 @@ class Box extends Component {
 			//this changes player1 from true(X) to false(O') or visa versa
 
 			if (this.props.player === true) {
-				this.setState({message: 'X'})
+				message = 'X'
 			} else {
-				this.setState({message: 'O'})
-			}
-			this.props.switchPlayer();
+				message = 'O'
+			} this.setState({message: message})
+			this.props.switchPlayer(message, this.props.id);
 		}
-		this.props.getMoves(this.props.id, this.state.message)
+
 	}
 
   render() {
     return (
-		<div className="squares"  id= {this.props.id} onClick={this.clickHandler}>{this.state.message} </div>
+		<div className="squares"  id= {this.props.id} onClick={this.clickHandler}>{this.state.message}</div>
 
 	)
   }
