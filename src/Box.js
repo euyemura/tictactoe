@@ -5,20 +5,19 @@ class Box extends Component {
 	constructor(props){
 		super(props)
 		this.state={
-			message: '',
 
 		}
 	}
 
 	clickHandler = (e) => {
-		let message = this.state.message
+		let message = ""
 		if(!this.props.messages[this.props.id-1] && !this.props.gameOver) {
 			//this changes player1 from true(X) to false(O') or visa versa
 
 			if (this.props.player === true) {
-				message = 'X'
+				message = 'x'
 			} else {
-				message = 'O'
+				message = this.props.avatar2
 			} this.props.setMessage(this.props.id, message)
 			this.props.switchPlayer(message, this.props.id);
 		}

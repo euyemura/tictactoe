@@ -1,3 +1,7 @@
+ * {
+	text-align: center;
+
+ }
 .parent {
 	display: flex;
 	flex-direction: row;
@@ -7,7 +11,25 @@
 }
 
 .squares {
+	/* background-image: url("./Assets/pengiun.png"); */
+	background-size: contain;
 	border: 1px solid black;
 	width: 100px;
 	height: 100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: red;
+	font-size: 30px;
+
+
+}
+
+.avatars {
+	display: inline;
+	margin-bottom: 30px;
+	font-size: 30px;
+}
+.squares a:hover {
+	background-color: black;
 }
