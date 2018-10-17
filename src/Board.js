@@ -12,7 +12,7 @@ class Board extends Component {
 			playerMoves: [],
 			gameOver: false,
 			gameMessage: '',
-			resetGame: false
+			messages: ['','','','','','','','','']
 		}
 	}
 
@@ -72,7 +72,17 @@ setGameOver = (message) => {
 
 
 resetGame = () => {
-	this.setState({resetGame: true})
+	this.setState({player1: true,
+				playerMoves: [],
+				gameOver: false,
+				gameMessage: '',
+				messages: ['','','','','','','','','']})
+
+}
+
+setMessage = (id , message) => {
+	this.state.messages[id-1] = message
+	this.forceUpdate()
 }
 
   render() {
@@ -80,21 +90,21 @@ resetGame = () => {
 	<div>
 		<h1> Tic Tac Toe Game </h1>
 		<div className="parent">
-			<Box id={1} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
-			<Box id={2} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
-			<Box id={3} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={1} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={2} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={3} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
 		</div>
 
 		<div className="parent">
-			<Box id={4} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
-			<Box id={5} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
-			<Box id={6} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={4} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={5} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={6} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
 		</div>
 
 		<div className="parent">
-			<Box id={7} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
-			<Box id={8} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
-			<Box id={9} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={7} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={8} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
+			<Box id={9} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
 		</div>
 			<p>{this.state.gameMessage}</p>
 			<button onClick={this.resetGame}>Reset</button>
