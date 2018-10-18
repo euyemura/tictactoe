@@ -11,7 +11,9 @@ class Box extends Component {
 
 	clickHandler = (e) => {
 		let message = ""
-		if(!this.props.messages[this.props.id-1] && !this.props.gameOver) {
+		if((!this.props.avatar1 || !this.props.avatar2) && !this.props.gameOver) {
+			alert("Pick an emoji now. Don't hesitate.")
+		} else if(!this.props.messages[this.props.id-1] && !this.props.gameOver) {
 			//this changes player1 from true(X) to false(O') or visa versa
 
 			if (this.props.player === true) {

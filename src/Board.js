@@ -63,6 +63,9 @@ winningCombos(arr) {
 				// console.log("Terrible");
 				this.setGame("YOU BOTH SUCK")
 				return true;
+			} else if(emptyArr.length===9) {
+				this.setGame("YOU BOTH SUCK")
+				return true
 			}
 		}
 	}
@@ -79,7 +82,10 @@ resetGame = () => {
 				playerMoves: [],
 				gameOver: false,
 				gameMessage: '',
-				messages: ['','','','','','','','','']})
+				messages: ['','','','','','','','',''],
+				emojis: ['👽', '🤠', '👩‍🔬', '🖕‍' ],
+				avatar1: '',
+				avatar2: ''})
 
 }
 
@@ -88,12 +94,15 @@ setMessage = (id , message) => {
 	this.forceUpdate()
 }
 
-emojiHandler = () => {
-	// console.log('clicked', cuck.target.value)
-	if(!this.state.avatar1){
-		this.setState({avatar1: 'x'})
-	} else {
-		this.setState({avatar2: 'o'‍})
+emojiHandler (id, event)  {
+	let avatar1 = this.state.avatar1
+	let avatar2 = this.state.avatar2
+	avatar1 = this.state.emojis[id]
+	if(this.state.avatar1 === ''){
+		this.setState({avatar1: avatar1})
+	} else if (this.state.avatar2 === '' && this.state.avatar1 !== this.state.emojis[id]){
+		avatar2 = this.state.emojis[id]
+		this.setState({avatar2:  avatar2})
 	}
 }
 
@@ -101,12 +110,14 @@ emojiHandler = () => {
 
   render() {
     return (
+		<div className = "bigMomma">
+		<div className="playerBox"><p className="small">Player 1</p><span>{this.state.avatar1}</span></div>
 	<div>
 		<h1> Tic Tac Toe Game </h1>
-		<p className="avatars" onClick={this.emojiHandler}> {this.state.emojis[0]} </p>
-			<p className="avatars" onClick={this.emojiHandler}> {this.state.emojis[1]} </p>
-				<p className="avatars" onClick={this.emojiHandler}> {this.state.emojis[2]} </p>
-					<p className="avatars" onClick={this.emojiHandler}> {this.state.emojis[3]} </p>
+		<button className="avatars" onClick={this.emojiHandler.bind(this, 0)}> {this.state.emojis[0]} </button>
+			<button className="avatars" onClick={this.emojiHandler.bind(this, 1)}> {this.state.emojis[1]} </button>
+				<button className="avatars" onClick={this.emojiHandler.bind(this, 2)}> {this.state.emojis[2]} </button>
+					<button className="avatars" onClick={this.emojiHandler.bind(this, 3)}> {this.state.emojis[3]} </button>
 		<div className="parent">
 			<Box id={1} avatar1={this.state.avatar1} avatar2={this.state.avatar2} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
 
@@ -132,6 +143,8 @@ emojiHandler = () => {
 		</div>
 			<p>{this.state.gameMessage}</p>
 			<button onClick={this.resetGame}>Reset</button>
+	</div>
+	<div className="playerBox"><p className="small">Player 2</p><span>{this.state.avatar2}</span></div>
 	</div>
     );
   }

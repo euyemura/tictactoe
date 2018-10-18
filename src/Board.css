@@ -1,7 +1,63 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+
  * {
 	text-align: center;
 
+
  }
+
+ body{
+	 min-height: 100vh;
+
+ }
+
+.playerBox {
+	width: 90px;
+	height: 90px;
+	background-color: rgba(116, 10, 500, .67);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 30px;
+	flex-direction: column
+
+}
+.small {
+	font-size: 15px;
+}
+ .bigMomma {
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: space-around;
+	align-items: center;
+ }
+.gameBoard {
+	background-image: url(https://natewren.com/themes/wallpaper2/radpack/radpack_4b.jpg);
+	min-height: 100vh;
+	background-color: #140421;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+
+	margin: 0px 0px;
+}
+
+h1 {
+	font-family: 'Amatic SC', bold;
+	color: rgba(116, 10, 500, .99);
+	font-size: 60px;
+	margin-top: 0px;
+	text-shadow: 2px 2px 8px;
+}
+
+p {
+	font-family: 'Amatic SC', bold;
+	color: white;
+	font-size: 55px;
+	font-weight: bolder;
+}
+
+
 .parent {
 	display: flex;
 	flex-direction: row;
@@ -10,16 +66,21 @@
 
 }
 
+
+
 .squares {
 	/* background-image: url("./Assets/pengiun.png"); */
 	background-size: contain;
-	border: 1px solid black;
+	background-color: transparent;
+	border: 3px solid rgba(216, 40, 239, .67);
+	border-radius: 3px;
 	width: 100px;
 	height: 100px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	color: red;
+	box-shadow: 1px 3px 30px 0px;
+	color: rgba(216, 40, 239, .97);
 	font-size: 30px;
 
 
@@ -29,7 +90,28 @@
 	display: inline;
 	margin-bottom: 30px;
 	font-size: 30px;
+	user-select: none;
 }
+
+
 .squares a:hover {
-	background-color: black;
+	background-color: rgba(116, 10, 500, .17);
+}
+
+button {
+	background-color: rgba(116, 10, 500, .67);
+	color: white;
+	border: 1px solid rgba(228, 248, 6, .88);
+	border-radius: 5px;
+	width: 110px;
+	height: 50px;
+	font-size: 15px;
+}
+
+
+button.avatars {
+	width: auto;
+	height: auto;
+	background-color: transparent;
+	border-color: rgba(216, 40, 239, .97);
 }
