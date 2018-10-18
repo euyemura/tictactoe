@@ -15,7 +15,7 @@ class Box extends Component {
 			//this changes player1 from true(X) to false(O') or visa versa
 
 			if (this.props.player === true) {
-				message = 'x'
+				message = this.props.avatar1
 			} else {
 				message = this.props.avatar2
 			} this.props.setMessage(this.props.id, message)

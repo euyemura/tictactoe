@@ -88,12 +88,12 @@ setMessage = (id , message) => {
 	this.forceUpdate()
 }
 
-emojiHandler = (cuck) => {
+emojiHandler = () => {
 	// console.log('clicked', cuck.target.value)
 	if(!this.state.avatar1){
-	this.setState({avatar1: cuck.target.value})
+		this.setState({avatar1: 'x'})
 	} else {
-		this.setState({avatar2: cuck.target.value})
+		this.setState({avatar2: 'o'‍})
 	}
 }
 
