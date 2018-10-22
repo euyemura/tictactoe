@@ -53,11 +53,11 @@ winningCombos(arr) {
 		for (var i = 0; i < winningCombos.length; i++) {
 			if(xValues.includes(winningCombos[i][0]) && xValues.includes(winningCombos[i][1]) && xValues.includes(winningCombos[i][2])){
 				// console.log("X wins");
-				this.setGame("X WINS!")
+				this.setGame("Player 1 WINS")
 				return true
 			} else if (oValues.includes(winningCombos[i][0]) && oValues.includes(winningCombos[i][1]) && oValues.includes(winningCombos[i][2])) {
 				// console.log("O Wins");
-				this.setGame("O WINS")
+				this.setGame("Player 2 WINS")
 				return true
 			} else if( i === 8 && emptyArr.length  === 9) {
 				// console.log("Terrible");
@@ -141,7 +141,7 @@ emojiHandler (id, event)  {
 
 			<Box id={9} avatar1={this.state.avatar1} avatar2={this.state.avatar2} setMessage={this.setMessage} messages={this.state.messages} resetGame={this.state.resetGame} setGame={this.setGameOver} moves={this.state.playerMoves} switchPlayer={this.switchPlayer} player={this.state.player1} checkWin={this.winningCombos} gameOver={this.state.gameOver} />
 		</div>
-			<p>{this.state.avatar1}</p>
+			<p>{this.state.gameMessage}</p>
 			<button onClick={this.resetGame}>Reset</button>
 	</div>
 	<div className="playerBox"><p className="small">Player 2</p><span>{this.state.avatar2}</span></div>
